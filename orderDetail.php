@@ -14,7 +14,7 @@ $customers = $orderManager->getCustomerById($orderNumber);
 if (isset($_POST["status"])) {
     $new_status = $_POST["status"];
     $orderManager->updateStatus($orderNumber, $new_status);
-    header("Location:orderDetail.php?$orderNumber=$orderNumber");
+    header("Location:orderDetail.php?orderNumber=$orderNumber");
 }
 
 ?>

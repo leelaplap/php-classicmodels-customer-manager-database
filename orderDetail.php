@@ -3,6 +3,7 @@ include_once "Class/Order.php";
 include_once "Class/OrderManager.php";
 include_once "Class/DBConnect.php";
 include_once "Class/Product.php";
+include_once "Class/Customer.php";
 include_once "Class/StatusConstant.php";
 
 
@@ -13,7 +14,7 @@ $customers = $orderManager->getCustomerById($orderNumber);
 if (isset($_POST["status"])) {
     $new_status = $_POST["status"];
     $orderManager->updateStatus($orderNumber, $new_status);
-    header("Location:order_detail.php?id=$orderNumber");
+    header("Location:orderDetail.php?$orderNumber=$orderNumber");
 }
 
 ?>
@@ -66,9 +67,10 @@ if (isset($_POST["status"])) {
                         Process
                     </option>
                 </select>
-            </form>
+        <input type="submit" value="Update" onclick="return confirm('Are you sure ???')">
+
+        </form>
         </td>
-        <td><input type="submit" value="Update"></td>
     </tr>
 
 </table>
